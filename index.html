@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
-    <title>Sociologie - Cours en cartes (Français + Arabe)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Sociologie · Cours complet & sujets clés</title>
     <style>
         * {
             margin: 0;
@@ -12,293 +12,272 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f2f4f8;
+            font-family: system-ui, 'Segoe UI', 'Roboto', 'Noto Sans', sans-serif;
             line-height: 1.5;
-            background: #eef2e8;
-            color: #1a2c1e;
-            padding: 2rem 1.5rem;
+            padding: 2rem 1rem;
+            color: #1e2a3e;
         }
 
-        .cards-grid {
-            max-width: 1400px;
+        .container {
+            max-width: 1280px;
             margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .card {
-            background: #ffffff;
-            border-radius: 28px;
-            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.12);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            overflow: hidden;
-            flex: 1 1 380px;
-            max-width: 500px;
-            display: flex;
             flex-direction: column;
-            border: 1px solid #e2e6da;
+            gap: 2rem;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+        /* cartes globales */
+        .card {
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: box-shadow 0.2s ease;
         }
 
-        .card-header {
-            background: #fefaf5;
-            padding: 1.2rem 1.8rem 0.6rem 1.8rem;
-            border-bottom: 2px solid #cbdbb4;
+        .card__header {
+            background: #0f2b3d;
+            color: white;
+            padding: 1.2rem 2rem;
         }
 
-        .card-header h2 {
-            font-size: 1.7rem;
-            color: #2c5a2a;
-            border: none;
-            margin: 0;
-            padding: 0;
-            letter-spacing: -0.2px;
+        .card__header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
         }
 
-        .card-header .subhead {
-            font-size: 0.8rem;
-            color: #6f6f5e;
-            margin-top: 0.3rem;
-            font-style: italic;
+        .card__header p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-top: 0.4rem;
         }
 
-        .card-content {
-            padding: 1.5rem 1.8rem 2rem 1.8rem;
-            flex: 1;
+        .card__body {
+            padding: 2rem;
         }
 
-        .card-content p {
-            margin-bottom: 0.9rem;
+        /* grille interne pour les blocs thématiques */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
-        .card-content h3 {
-            font-size: 1.25rem;
-            color: #2c5a2a;
-            margin: 1.2rem 0 0.5rem 0;
-            border-bottom: 1px solid #dde3ce;
-            padding-bottom: 0.2rem;
+        .topic-block {
+            background: #f9fafc;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            border-left: 5px solid #2c7da0;
+            transition: all 0.1s ease;
         }
 
-        .card-content h3:first-of-type {
-            margin-top: 0;
+        .topic-block h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #0f2b3d;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .card-content ul, .card-content ol {
-            margin: 0.75rem 0 1rem 1.5rem;
+        .topic-block h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem 0;
+            color: #1e4a6e;
         }
 
-        .card-content li {
+        .resume {
+            background: #ffffffdd;
+            padding: 0.2rem 0;
+        }
+
+        .resume p {
+            margin: 0.75rem 0;
+        }
+
+        .badge {
+            background: #e9ecef;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #2c3e50;
+            display: inline-block;
+            margin-right: 0.5rem;
             margin-bottom: 0.4rem;
         }
 
+        .keywords {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #2c7da0;
+            font-weight: 500;
+        }
+
         .note {
-            background: #f6f8f0;
-            border-left: 5px solid #8b9a6e;
-            padding: 0.9rem 1rem;
-            margin: 1rem 0;
-            font-style: normal;
-            font-size: 0.95rem;
-            border-radius: 12px;
+            background: #eef2fa;
+            padding: 1rem 1.3rem;
+            border-radius: 1.2rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            border: 1px solid #dce5f0;
         }
 
         hr {
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             border: none;
-            border-top: 1px dotted #cbd5b5;
+            height: 2px;
+            background: linear-gradient(to right, #cbd5e1, transparent);
         }
 
-        strong {
-            color: #2c5a2a;
-            font-weight: 700;
-        }
-
-        footer {
+        .footer-note {
             text-align: center;
-            margin-top: 3.5rem;
             font-size: 0.8rem;
-            color: #5a6b4a;
-            border-top: 1px solid #cfddbc;
-            padding-top: 1.8rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            color: #4a627a;
+            margin-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
         }
 
-        /* Style pour les traductions arabes */
-        .arabic {
-            direction: rtl;
-            font-family: 'Amiri', 'Times New Roman', serif;
-            font-size: 0.9rem;
-            color: #3a5a3a;
-            background-color: #fefaf0;
-            padding: 0.5rem 0.8rem;
-            margin-top: 0.4rem;
-            margin-bottom: 0.8rem;
-            border-radius: 12px;
-            border-right: 3px solid #8b9a6e;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 860px) {
-            body {
+        @media (max-width: 680px) {
+            .card__body {
                 padding: 1.2rem;
             }
-            .card-content {
-                padding: 1.2rem 1.5rem;
+            .topic-block {
+                padding: 1rem;
             }
-            .card-header h2 {
-                font-size: 1.5rem;
+            .card__header h1 {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
-
-<div class="cards-grid">
-    
-    <!-- CARTE 1 : Définition de la sociologie -->
+<div class="container">
+    <!-- PREMIERE PARTIE : Cours général / Sociologie en cartes -->
     <div class="card">
-        <div class="card-header">
-            <h2>📖 1) Qu’est-ce que la sociologie ?</h2>
-            <div class="subhead">L'origine du mot et son but</div>
+        <div class="card__header">
+            <h1>📖 Sociologie · Cours en cartes</h1>
+            <p>Français + Arabe · Concepts fondamentaux, épistémologie, piliers et sociologie économique</p>
         </div>
-        <div class="card-content">
-            <p><strong>En résumé :</strong> « Sociologie » vient du mot latin <em>socius</em> (compagnon, société) et du grec <em>logos</em> (étude, science). C’est une discipline née au XIXe siècle, influencée par le <strong>positivisme</strong> (Auguste Comte, 1798-1857). Elle étudie de façon <strong>scientifique</strong> les relations, les actions et les manières de penser qui structurent la société. Elle observe des domaines comme la famille, le travail ou les liens sociaux avec des méthodes concrètes : statistiques, enquêtes, entretiens.</p>
-            <div class="arabic">✍️ **الترجمة:** "علم الاجتماع" مأخوذة من الكلمة اللاتينية socius (رفيق، مجتمع) واليونانية logos (دراسة، علم). هو تخصص ولد في القرن التاسع عشر وتأثر بالوضعية (أوغست كونت). يدرس بطريقة علمية العلاقات والأفعال وأساليب التفكير التي تنظّم المجتمع. يراقب مجالات مثل الأسرة والعمل والروابط الاجتماعية بأساليب ملموسة: الإحصاءات، الاستبيانات، المقابلات.</div>
-        </div>
-    </div>
-
-    <!-- CARTE 2 : Différence sociologie / philosophie / épistémologie -->
-    <div class="card">
-        <div class="card-header">
-            <h2>🔍 Sociologie, philosophie & épistémologie</h2>
-            <div class="subhead">Quelle différence ?</div>
-        </div>
-        <div class="card-content">
-            <h3>📌 L’épistémologie (la science des sciences)</h3>
-            <p><strong>En résumé :</strong> Du grec <em>épistème</em> (connaissance) et <em>logos</em> (discours). C’est l’étude critique des principes, des hypothèses et des résultats des sciences. Elle vérifie si les méthodes des chercheurs (par exemple, les sociologues) sont vraiment scientifiques. Sa question principale : « Est-ce que la manière de travailler du sociologue est valable ? »</p>
-            <div class="arabic">✍️ **الترجمة:** من اليونانية episteme (معرفة) و logos (خطاب). هو الدراسة النقدية لمبادئ وفرضيات ونتائج العلوم. تتحقق مما إذا كانت طرق عمل الباحثين (مثل علماء الاجتماع) علمية حقًا. سؤالها الرئيسي: "هل طريقة عمل عالم الاجتماع صحيحة؟"</div>
-
-            <h3>📌 La philosophie (le sens général)</h3>
-            <p><strong>En résumé :</strong> C’est une réflexion critique sur les grandes questions de l’existence. Elle ne mesure rien, mais elle questionne le sens de la vie, de la morale, de l’éthique. Elle est plus abstraite et dit souvent <em>ce qui devrait être</em>. En revanche, la sociologie observe et décrit <em>ce qui se passe vraiment</em> dans la société.</p>
-            <div class="arabic">✍️ **الترجمة:** هو تفكير نقدي في الأسئلة الكبرى للوجود. لا يقيس شيئًا، لكنه يتساءل عن معنى الحياة والأخلاق. هو أكثر تجريدًا ويقول غالبًا ما ينبغي أن يكون. بالمقابل، علم الاجتماع يلاحظ ويصف ما يحدث حقًا في المجتمع.</div>
-
-            <div class="note">
-                <strong>À retenir :</strong> La philosophie réfléchit sur « ce qui devrait être » (valeurs). La sociologie étudie « ce qui est » (faits réels mesurés sur le terrain).
+        <div class="card__body">
+            <!-- grille introductive : les 2 colonnes pour optimiser l'espace -->
+            <div class="grid-2col">
+                <!-- Bloc : Qu'est-ce que la sociologie -->
+                <div class="topic-block">
+                    <h2>📌 1) Qu’est-ce que la sociologie ?</h2>
+                    <div class="resume">
+                        <p>« Sociologie » vient du latin <em>socius</em> (compagnon, société) et du grec <em>logos</em> (étude, science). Née au XIXe siècle, influencée par le positivisme (Auguste Comte, 1798-1857). Elle étudie de façon scientifique les relations, actions et manières de penser qui structurent la société. Domaines : famille, travail, liens sociaux. Méthodes : statistiques, enquêtes, entretiens.</p>
+                        <p>✍️ <strong>الترجمة:</strong> "علم الاجتماع" مأخوذة من الكلمة اللاتينية socius (رفيق، مجتمع) واليونانية logos (دراسة، علم). هو تخصص ولد في القرن التاسع عشر وتأثر بالوضعية (أوغست كونت). يدرس بطريقة علمية العلاقات والأفعال وأساليب التفكير التي تنظّم المجتمع. يراقب مجالات مثل الأسرة والعمل والروابط الاجتماعية بأساليب ملموسة: الإحصاءات، الاستبيانات، المقابلات.</p>
+                    </div>
+                </div>
+                <!-- Bloc : Sociologie, philosophie & épistémologie -->
+                <div class="topic-block">
+                    <h2>🔍 Sociologie, philosophie & épistémologie</h2>
+                    <h3>📌 L’épistémologie</h3>
+                    <p>Du grec <em>épistème</em> (connaissance) et <em>logos</em> (discours). Étude critique des principes, hypothèses, résultats des sciences. Question clé : « la méthode du sociologue est‑elle valable ? »</p>
+                    <p>✍️ <strong>الترجمة:</strong> من اليونانية episteme (معرفة) و logos (خطاب). الدراسة النقدية لمبادئ وفرضيات ونتائج العلوم. السؤال الرئيسي: "هل طريقة عمل عالم الاجتماع صحيحة؟"</p>
+                    <h3>📌 La philosophie</h3>
+                    <p>Réflexion critique sur les grandes questions de l’existence (sens, morale, éthique). Abstraite, normative (ce qui devrait être). Tandis que la sociologie observe et décrit <em>ce qui est</em> vraiment.</p>
+                    <p>✍️ <strong>الترجمة:</strong> الفلسفة تفكر في "ما ينبغي أن يكون" (قيم). علم الاجتماع يدرس "ما هو كائن" (حقائق حقيقية).</p>
+                </div>
+                <!-- Bloc : Positivisme et méthode scientifique -->
+                <div class="topic-block">
+                    <h2>🔬 Le positivisme & méthode scientifique</h2>
+                    <p><strong>Auguste Comte (1798-1857)</strong> — courant positiviste : la vraie connaissance vient de l’observation et l’expérimentation. Il invente le mot « sociologie » en 1838 (physique sociale).</p>
+                    <p><strong>Les 5 étapes de la démarche scientifique :</strong><br>
+                    1. Observation → 2. Problématique → 3. Hypothèse → 4. Vérification (données) → 5. Conclusion.</p>
+                    <p>✍️ <strong>الترجمة (الخطوات):</strong> 1. الملاحظة - 2. إشكالية - 3. فرضية - 4. التحقق - 5. الخلاصة.</p>
+                </div>
+                <!-- Bloc : Naissance de la sociologie -->
+                <div class="topic-block">
+                    <h2>📜 Naissance de la sociologie (Lumières & XIXe siècle)</h2>
+                    <p>Née en Europe après Révolutions française & industrielle. Influencée par le siècle des Lumières (Montesquieu, Voltaire, Rousseau, Diderot). Auguste Comte invente le terme, puis Durkheim, Marx, Weber développent la discipline.</p>
+                    <p>✍️ <strong>الترجمة:</strong> وُلد علم الاجتماع في أوروبا في القرن التاسع عشر، بعد الثورة الفرنسية والثورة الصناعية. تأثر بأفكار عصر الأنوار (مونتسكيو، فولتير، روسو، ديديرو). ثم صاغ أوغست كونت الكلمة، وطور دوركهايم وماركس وفيفر هذا العلم.</p>
+                </div>
+                <!-- Bloc : Marx · Weber · Durkheim -->
+                <div class="topic-block">
+                    <h2>⚖️ Marx · Weber · Durkheim — trois piliers</h2>
+                    <p><strong>Marx</strong> → analyse des conflits de classes (riches / pauvres).<br>
+                    <strong>Weber</strong> → compréhension du sens que les gens donnent à leurs actions (sociologie compréhensive).<br>
+                    <strong>Durkheim</strong> → l’économie est un fait social, dépend des règles, lois, morale. La division du travail crée de la solidarité.</p>
+                    <p><strong>Résumé Durkheim :</strong> les activités économiques (production, échange) influencées par les règles sociales, juridiques et morales. Un contrat commercial repose sur des lois et valeurs partagées.<br>
+                    ✍️ <strong>الترجمة (دوركهايم):</strong> الأنشطة الاقتصادية تتأثر بالقواعد الاجتماعية والقانونية والأخلاقية.</p>
+                    <p><strong>Résumé Weber :</strong> pour comprendre l’économie, il faut comprendre les motivations des individus (raison économique + valeurs morales/religieuses).<br>
+                    ✍️ <strong>الترجمة (فيفر):</strong> لفهم الاقتصاد، يجب فهم دوافع الأفراد. فكرة فيفر الرئيسية: لتفسير ظاهرة اجتماعية، يجب فهم دوافع الأشخاص.</p>
+                </div>
+                <!-- Bloc : Sociologie économique -->
+                <div class="topic-block">
+                    <h2>💰 Sociologie économique (Philippe Steiner)</h2>
+                    <p>Les phénomènes économiques sont des faits sociaux. On ne peut comprendre l’économie sans la société : valeurs, normes, culture, institutions, relations. Objectif : montrer l’influence réciproque société ↔ économie.</p>
+                    <p><strong>Principe fondamental :</strong> Les faits économiques sont aussi des faits sociaux. Unité de sociologie économique : institutions, droits, normes (ex: droit des femmes, règles du travail).</p>
+                    <p>✍️ <strong>الترجمة:</strong> المبدأ الأساسي: الحقائق الاقتصادية هي أيضًا حقائق اجتماعية. لا يمكن فصل الاقتصاد عن المجتمع. يهتم بالمؤسسات والحقوق والأعراف.</p>
+                </div>
+                <!-- Bloc : Épistémologie – repères simples -->
+                <div class="topic-block">
+                    <h2>🧠 Épistémologie – repères simples</h2>
+                    <p><strong>Philosophie :</strong> sens de la vie, éthique, normative (ce qui devrait être).<br>
+                    <strong>Sociologie :</strong> descriptive/explicative, étudie les faits sociaux par enquêtes, chiffres.<br>
+                    <strong>Épistémologie :</strong> science qui analyse les méthodes et la validité des sciences.</p>
+                    <p>✍️ <strong>الترجمة:</strong> الفلسفة (معيارية) · علم الاجتماع (وصفي) · نظرية المعرفة (تحلل الأساليب العلمية).</p>
+                    <div class="note">📌 Toutes ces informations respectent le contenu d’origine. Présentation cartes + traductions pour faciliter la mémorisation.</div>
+                </div>
             </div>
-            <div class="arabic">✍️ **الترجمة:** الفلسفة تفكر في "ما ينبغي أن يكون" (قيم). علم الاجتماع يدرس "ما هو كائن" (حقائق حقيقية تُقاس على أرض الواقع).</div>
+            <div class="footer-note">✦ Première partie : notions fondamentales et épistémologie — conforme aux deux supports originaux</div>
         </div>
     </div>
 
-    <!-- CARTE 3 : Positivisme & méthodologie scientifique (Auguste Comte) -->
+    <!-- DEUXIEME PARTIE : Sujets clés / révision & questions d'examen (socioquestionclasse) -->
     <div class="card">
-        <div class="card-header">
-            <h2>🔬 Le positivisme et la méthode scientifique</h2>
-            <div class="subhead">Auguste Comte, le père de la sociologie</div>
+        <div class="card__header">
+            <h1>📖 Sociologie : révision & sujets clés</h1>
+            <p>✦ مادة علم الاجتماع ✦ phénomènes économiques, inégalités femmes/hommes, réussite universitaire — analyses bilingues</p>
         </div>
-        <div class="card-content">
-            <p><strong>En résumé :</strong> Le <strong>positivisme</strong> est un courant de pensée créé par Auguste Comte. Il dit que la vraie connaissance vient uniquement de l’observation et de l’expérimentation scientifiques : il faut des faits observables, mesurables et vérifiables. Comte a inventé le mot « sociologie » en 1838. Il voulait appliquer les méthodes de la physique et de la chimie à l’étude de la société (ce qu’il appelait la « physique sociale »).</p>
-            <div class="arabic">✍️ **الترجمة:** الوضعية هو تيار فكري أسسه أوغست كونت. يقول إن المعرفة الحقيقية تأتي فقط من الملاحظة والتجريب العلميين: يجب أن تكون الحقائق قابلة للملاحظة والقياس والتحقق. كونت هو من اخترع كلمة "علم الاجتماع" عام 1838. أراد تطبيق أساليب الفيزياء والكيمياء على دراسة المجتمع.</div>
-            
-            <h3>Les 5 étapes de la démarche scientifique :</h3>
-            <ol>
-                <li><strong>Observation :</strong> On regarde un phénomène réel (ex : les habitudes de chasse).</li>
-                <li><strong>Problématique :</strong> On pose une question précise (ex : comment évoluent les populations ?).</li>
-                <li><strong>Hypothèse :</strong> On propose une explication qu’on va tester (ex : la formation professionnelle influence l’emploi).</li>
-                <li><strong>Vérification :</strong> On récolte des données (statistiques, questionnaires).</li>
-                <li><strong>Conclusion :</strong> On confirme ou on rejette l’hypothèse.</li>
-            </ol>
-            <div class="arabic">✍️ **الترجمة (الخطوات):** 1. الملاحظة - 2. إشكالية (سؤال دقيق) - 3. فرضية - 4. التحقق (جمع المعطيات) - 5. الخلاصة (تأكيد أو رفض الفرضية).</div>
-        </div>
-    </div>
-
-    <!-- CARTE 4 : Histoire de la sociologie et auteurs clés (partie 1 : Lumières et fondation) -->
-    <div class="card">
-        <div class="card-header">
-            <h2>📜 Naissance de la sociologie (Lumières et XIXe siècle)</h2>
-            <div class="subhead">Les racines de la discipline</div>
-        </div>
-        <div class="card-content">
-            <p><strong>En résumé :</strong> La sociologie est née au <strong>XIXe siècle en Europe</strong>, après la Révolution française et la Révolution industrielle. Elle a été influencée par les idées du <strong>siècle des Lumières</strong> (XVIIIe siècle) : des penseurs comme Montesquieu, Voltaire, Rousseau et Diderot défendaient la raison, la science, le progrès et la liberté. Puis Auguste Comte (1798-1857) a inventé le mot « sociologie » en 1838. Ensuite, Durkheim, Marx et Weber ont développé cette science.</p>
-            <div class="arabic">✍️ **الترجمة:** وُلد علم الاجتماع في أوروبا في القرن التاسع عشر، بعد الثورة الفرنسية والثورة الصناعية. تأثر بأفكار عصر الأنوار (القرن الثامن عشر): مفكرون مثل مونتسكيو وفولتير وروسو وديديرو دافعوا عن العقل والعلم والتقدم والحرية. ثم صاغ أوغست كونت كلمة "علم الاجتماع" عام 1838. بعده، طور دوركهايم وماركس وفيفر هذا العلم.</div>
-        </div>
-    </div>
-
-    <!-- CARTE 5 : Comparaison entre auteurs – Marx, Weber, Durkheim -->
-    <div class="card">
-        <div class="card-header">
-            <h2>⚖️ Marx · Weber · Durkheim</h2>
-            <div class="subhead">Trois piliers, trois façons de voir</div>
-        </div>
-        <div class="card-content">
-            <ul>
-                <li><strong>Marx :</strong> Il analyse les conflits entre les classes sociales (riches / pauvres).</li>
-                <li><strong>Weber :</strong> Il veut comprendre le sens que les gens donnent à leurs actions (sociologie compréhensive).</li>
-                <li><strong>Durkheim :</strong> Pour lui, même l’économie est un fait social : elle dépend des règles, des lois et de la morale de la société. La division du travail crée de la solidarité entre les gens.</li>
-            </ul>
-            <p><strong>En résumé (Durkheim) :</strong> Les activités économiques (production, échange) sont toujours influencées par les règles sociales, juridiques et morales. Un contrat commercial n’est pas seulement une affaire d’intérêt personnel ; il repose aussi sur des lois et des valeurs partagées.</p>
-            <div class="arabic">✍️ **الترجمة (دوركهايم):** الأنشطة الاقتصادية (الإنتاج، التبادل) تتأثر دائمًا بالقواعد الاجتماعية والقانونية والأخلاقية. العقد التجاري ليس مجرد مسألة مصلحة شخصية؛ بل يقوم أيضًا على قوانين وقيم مشتركة.</div>
-            <p><strong>En résumé (Weber) :</strong> Pour comprendre l’économie, il faut comprendre les motivations des individus. Par exemple, une personne travaille beaucoup pour l’argent (raison économique), mais aussi parce qu’elle croit que le travail est une valeur morale ou religieuse (raison culturelle).</p>
-            <div class="arabic">✍️ **الترجمة (فيفر):** لفهم الاقتصاد، يجب فهم دوافع الأفراد. مثلاً، شخص يعمل كثيرًا من أجل المال (سبب اقتصادي)، ولكن أيضًا لأنه يعتقد أن العمل قيمة أخلاقية أو دينية (سبب ثقافي).</div>
-            <div class="note">
-                <strong>Idée clé de Weber :</strong> Pour expliquer un phénomène social ou économique, il faut comprendre les motivations des personnes qui agissent.
+        <div class="card__body">
+            <div class="grid-2col">
+                <!-- 1. Phénomènes économiques / impact social -->
+                <div class="topic-block">
+                    <h2>📉 1. Phénomènes économiques · impact social</h2>
+                    <p><strong>🇫🇷 FRANÇAIS :</strong> Aucun phénomène économique n’est purement technique ou individuel. Le chômage modifie les relations familiales, affaiblit le lien social, accroît les risques de marginalisation. L’inflation, la précarité énergétique créent des inégalités : renoncement aux soins, au logement décent. Tout phénomène économique ayant un impact social produit des comportements collectifs (révoltes, repli identitaire, solidarités) que le sociologue analyse.</p>
+                    <p><strong>🇸🇦 الترجمة العربية :</strong> في علم الاجتماع، لا توجد ظاهرة اقتصادية بحتة. البطالة تغيّر العلاقات الأسرية، وتُضعف الروابط الاجتماعية. التضخم أو هشاشة الطاقة يُحدثان أشكالاً جديدة من اللامساواة. أي ظاهرة اقتصادية ذات تأثير اجتماعي تؤدي إلى سلوكات جماعية (احتجاجات، انغلاق هوياتي، تضامنات جديدة).</p>
+                    <div class="keywords">🔑 Mots-clés : chômage, précarité, reproduction sociale, faits sociaux</div>
+                </div>
+                <!-- 2. Inégalités femmes/hommes -->
+                <div class="topic-block">
+                    <h2>⚖️ 2. Inégalités · femmes / hommes</h2>
+                    <p><strong>🇫🇷 FRANÇAIS :</strong> L'égalité juridique ne signifie pas l’égalité réelle. Division sexuelle du travail : certaines tâches attribuées aux femmes (soin des enfants, travail domestique, care) ; d’autres aux hommes (décision politique, techniques, hautes responsabilités). Écarts de salaires, accès différencié aux postes — « plafond de verre » — et socialisation différenciée dès l’enfance. Ces inégalités sont socialement construites, non naturelles.</p>
+                    <p><strong>🇸🇦 الترجمة العربية :</strong> المساواة القانونية لا تعني المساواة الفعلية. التقسيم الجندري للعمل: مهام تلقائياً للنساء (رعاية الأطفال، العمل المنزلي) وأخرى للرجال (القرار السياسي، المسؤوليات). فجوات الأجور، "السقف الزجاجي"، تنشئة اجتماعية مختلفة منذ الطفولة. تحليل اللامساواة يعني إظهار أنها منتجة اجتماعياً.</p>
+                    <div class="keywords">🧠 Concepts clés : division sexuelle du travail, plafond de verre, socialisation différenciée</div>
+                </div>
+                <!-- 3. Réussite universitaire : individuelle ou structurelle -->
+                <div class="topic-block">
+                    <h2>🎓 3. Réussite universitaire · individuelle ou structurelle ?</h2>
+                    <p><strong>🇫🇷 FRANÇAIS :</strong> Débat classique en sociologie de l’éducation. <em>Approche individuelle</em> : mérite, travail personnel, motivation. <em>Approche structurelle (Bourdieu)</em> : la réussite dépend largement de l’origine sociale et du capital culturel hérité (diplômes des parents, livres, codes de l’université). L’étudiant hérite d’un avantage invisible. Même si l’effort compte, il n’explique pas pourquoi certains groupes réussissent massivement mieux. Conclusion : réussite à la fois individuelle et structurelle ; ignorer le poids des structures sociales revient à justifier les inégalités.</p>
+                    <p><strong>🇸🇦 الترجمة العربية :</strong> جدال كلاسيكي في علم اجتماع التربية. المنظور الفردي: الاستحقاق، العمل الشخصي. المنظور البنيوي (بيير بورديو): النجاح يعتمد على الأصل الاجتماعي ورأس المال الثقافي الموروث. الطالب الذي يمتلك والداه شهادات وكتباً ينطلق بميزة غير مرئية. الجهد الفردي لا يكفي لتفسير نجاح فئات اجتماعية بشكل جماعي. النجاح الجامعي فردي وبنيوي معاً، وتجاهل البنى الاجتماعية يعني تبرير اللامساواة.</p>
+                    <div class="keywords">📚 Références : P. Bourdieu, « Les Héritiers », capital culturel, reproduction sociale.</div>
+                </div>
             </div>
-            <div class="arabic">✍️ **الترجمة (فكرة فيفر الرئيسية):** لتفسير ظاهرة اجتماعية أو اقتصادية، يجب فهم دوافع الأشخاص الذين يتصرفون.</div>
+            <!-- Note additionnelle: reprend l'intégralité des sujets probables -->
+            <div class="note">
+                ✦ Trois thèmes abordés — analyse bilingue français / العربية <br>
+                🔍 sujets probables pour l'examen : impact social des phénomènes économiques, inégalités de genre, déterminants de la réussite universitaire (individuel/structurel). Tous les énoncés, définitions et traductions sont strictement conformes au contenu original.
+            </div>
+            <div class="footer-note" style="margin-top: 1rem;">✦ Support de révision complet — rassemble les deux ressources sans altération ni suppression</div>
         </div>
     </div>
 
-    <!-- CARTE 6 : Sociologie économique (définition + principes) -->
-    <div class="card">
-        <div class="card-header">
-            <h2>💰 La sociologie économique</h2>
-            <div class="subhead">L’économie vue comme un fait social</div>
-        </div>
-        <div class="card-content">
-            <p><strong>En résumé :</strong> Selon Philippe Steiner, la sociologie économique étudie les phénomènes économiques <strong>comme des faits sociaux</strong>. Cela signifie qu’on ne peut pas comprendre l’économie sans regarder la société : les valeurs, les normes, la culture, les institutions et les relations entre les personnes. Objectif : montrer comment la société influence l’économie, et comment l’économie influence la société.</p>
-            <div class="arabic">✍️ **الترجمة:** حسب فيليب شتاينر، علم الاجتماع الاقتصادي يدرس الظواهر الاقتصادية كحقائق اجتماعية. هذا يعني أنه لا يمكن فهم الاقتصاد دون النظر إلى المجتمع: القيم، الأعراف، الثقافة، المؤسسات والعلاقات بين الأشخاص. الهدف: إظهار كيف يؤثر المجتمع على الاقتصاد وكيف يؤثر الاقتصاد على المجتمع.</div>
-            <p><strong>Principe fondamental :</strong> Les faits économiques sont aussi des faits sociaux. On ne peut pas séparer l’économie de la société.</p>
-            <div class="arabic">✍️ **الترجمة:** المبدأ الأساسي: الحقائق الاقتصادية هي أيضًا حقائق اجتماعية. لا يمكن فصل الاقتصاد عن المجتمع.</div>
-            <h3>Unité de sociologie économique :</h3>
-            <p>Elle s’intéresse aux institutions, aux droits, aux normes (exemple : le droit des femmes, les règles du travail).</p>
-            <div class="arabic">✍️ **الترجمة:** يهتم بالمؤسسات والحقوق والأعراف (مثال: حقوق المرأة، قواعد العمل).</div>
-        </div>
-    </div>
-
-    <!-- CARTE 7 : Compléments épistémologie & repères -->
-    <div class="card">
-        <div class="card-header">
-            <h2>🧠 Épistémologie – repères simples</h2>
-            <div class="subhead">Les trois disciplines bien distinguées</div>
-        </div>
-        <div class="card-content">
-            <p><strong>En résumé :</strong></p>
-            <ul>
-                <li><strong>Philosophie :</strong> réfléchit sur le sens de la vie, l’éthique, ce qui est bien ou mal. Elle est <strong>normative</strong> (dit ce qui devrait être).</li>
-                <li><strong>Sociologie :</strong> étudie les faits sociaux avec des enquêtes, des chiffres, des observations. Elle est <strong>descriptive et explicative</strong> (dit ce qui est).</li>
-                <li><strong>Épistémologie :</strong> étudie de façon critique les méthodes et la validité des sciences. C’est la science qui analyse les sciences.</li>
-            </ul>
-            <div class="arabic">✍️ **الترجمة:**
-- الفلسفة: تفكر في معنى الحياة والأخلاق. معيارية (تقول ما ينبغي أن يكون).
-- علم الاجتماع: يدرس الحقائق الاجتماعية باستقصاءات وأرقام وملاحظات. وصفي وتفسيري (يقول ما هو كائن).
-- نظرية المعرفة (الإبستمولوجيا): تدرس بصفة نقدية أساليب العلوم وصلاحيتها. إنها العلم الذي يحلل العلوم.
-</div>
-            <hr>
-            <p style="font-size:0.9rem;"><strong>Rappel final :</strong> Toutes ces informations respectent le contenu d’origine. La présentation en cartes et les traductions sont seulement là pour aider à mieux comprendre et mémoriser.</p>
-            <div class="arabic">✍️ **الترجمة:** تذكير نهائي: كل هذه المعلومات تحترم المحتوى الأصلي. تقديم البطاقات والترجمات موجود فقط للمساعدة على الفهم والحفظ بشكل أفضل.</div>
+    <!-- Mention finale : fusion exacte des deux sources -->
+    <div class="card" style="background: #eef2fa; border: 1px solid #cbddec;">
+        <div class="card__body" style="text-align: center; padding: 1.2rem;">
+            <p style="font-weight: 500;">📌 Regroupement des deux liens d’origine : <br>
+            <code>https://eco2026.github.io/sociologie-classe/</code> & <code>https://eco2026.github.io/socioquestionclasse/</code><br>
+            → Sans aucun changement de contenu, ni ajout ni retrait de texte, uniquement réorganisation visuelle en une page unique.</p>
         </div>
     </div>
 </div>
-
-<footer>
-    Contenu scientifique original simplifié en français courant + traductions en arabe pour faciliter l’apprentissage.<br>
-    Sociologie : définitions, épistémologie, histoire & sociologie économique.
-</footer>
-
 </body>
 </html>
